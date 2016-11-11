@@ -1,10 +1,10 @@
 # dc_probate -- District of Columbia Court Costs Calculator
+# v. 2.0 (2016-11-11)
 # Based on D.C. Superior Court Rules SCR-PD 425
 # For more information on D.C. probate see: 
 # http://www.dccourts.gov/internet/superior/org_probate/main.jsf
 #
 # (C) 2016 S.M. Oliva <oswriter@skipoliva.com>
-# For more information see: http://opensourcewriter.com
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
@@ -57,35 +57,44 @@ if real_estate == "yes":
 else:
 	assessment = 0
 	
-personal_assets = input("\nWhat is the total value of all personal assets in the decedent's estate? ")
-personal_assets = int(personal_assets)
+while True:
+    personal_assets = input("\nWhat is the total value of all personal assets in the decedent's estate? ")
+
+    try:
+        personal_assets = int(personal_assets)
+    except ValueError:
+        print("Please enter a dollar amount without any currency symbols ($) or commas (,).")
+    else:
+        break
 
 # Calculation of Court Costs pursuant to SCR-PD 425
 
-if personal_assets < 500:
-	costs = 0 + assessment
+if personal_assets < 0:
+    costs = 0
+elif personal_assets < 500:
+    costs = 0 + assessment
 elif personal_assets < 2500:
-	costs = 15 + assessment
+    costs = 15 + assessment
 elif personal_assets < 15000:
-	costs = 50 + assessment
+    costs = 50 + assessment
 elif personal_assets < 25000:
-	costs = 100 + assessment
+    costs = 100 + assessment
 elif personal_assets < 50000:
-	costs = 150 + assessment
+    costs = 150 + assessment
 elif personal_assets < 75000:
-	costs = 250 + assessment
+    costs = 250 + assessment
 elif personal_assets < 100000:
-	costs = 350 + assessment
+    costs = 350 + assessment
 elif personal_assets < 500000:
-	costs = 575 + assessment
+    costs = 575 + assessment
 elif personal_assets < 750000:
-	costs = 825 + assessment
+    costs = 825 + assessment
 elif personal_assets < 1000000:
-	costs = 1275 + assessment
+    costs = 1275 + assessment
 elif personal_assets < 2500000:
-	costs = 1800 + assessment
+    costs = 1800 + assessment
 elif personal_assets < 5000000:
-	costs = 2300 + assessment
+    costs = 2300 + assessment
 else:
     costs = 2300 + (0.0002 * (personal_assets - 5000000)) + assessment
     
