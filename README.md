@@ -1,5 +1,5 @@
 # dc-probate
-D.C. probate court costs calculator for Python.
+D.C. probate court costs calculator for Python 3.x.
 
 ## Features
 This is a simple Python script that calcuates the court costs for a probate estate opened in the District of Columbia.
@@ -14,8 +14,8 @@ The program asks you to input the value of the decedent's *gross estate* without
 ## Disclaimer
 This program **does not offer legal advice**. If you have any questions regarding the administration of a District of Columbia estate, you should speak with a qualified probate attorney.
 
-## Testing Note
-This code was tested in Python 3.4.2.
+## Testing Notes
+This code was developed and tested in Python 3.4.2. It will not work in Python 2.x.
 
 ## License
 © 2016 S.M. Oliva ([@oswriter](https://github.com/oswriter)) and distributed under the [BSD 3-Clause License](https://opensource.org/licenses/BSD-3-Clause).
